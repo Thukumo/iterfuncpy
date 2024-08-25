@@ -8,4 +8,4 @@ version = "0.0.2"
 description = "ちょっと楽するために作ったライブラリ(超小機能)"
 readme = "README.md"
 license = {file="LICENSE"}
-authors = ["つくも <0t0nashi0kayu@gmail.com>"]
+authors = [{name="つくも", email="0t0nashi0kayu@gmail.com>"}]
