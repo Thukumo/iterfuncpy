@@ -13,6 +13,6 @@ pip install git+https://github.com/thukumo/wildcardpy.git
 ## 使い方
 ```python
 import iterfunc
-for i in iterfunc.iter_func(lambda x: x, "???"):
-    print(i) # 000 001 002 ... 997 998 999
+for i in iterfunc.iter_func(lambda x: x, "?hoge??"):
+    print(i) # 0hoge00 0hoge01 0hoge02 ... 9hoge98 9hoge99
 ```
