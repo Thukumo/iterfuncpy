@@ -9,6 +9,3 @@ description = "ちょっと楽するために作ったライブラリ(超小機�
 readme = "README.md"
 license = {file="LICENSE"}
 authors = ["つくも <0t0nashi0kayu@gmail.com>"]
-
-[tool.poetry.dependencies]
-python = "^3.6"
