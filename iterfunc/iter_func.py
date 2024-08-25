@@ -16,7 +16,7 @@ class iter_func:
         stnum = "".join(["0" for _ in range(self.n-len(str(self.num)))])+str(self.num)
         self.num += 1
         [self.l[int(stnum[i])] for i in range(self.n)]
-        return self.func("".join(sps[i] + l[i] for i in range(len(l)))+sps[-1])
+        return self.func("".join(sps[i] + l[i] for i in range(len(l :=  [self.l[int(stnum[i])] for i in range(self.n)])))+sps[-1])
 
 def generate_string(s, l, sp_char="?"):
     if len(l)+1 != len(sps := s.split(sp_char)): raise ValueError(f"Length of l must be equal to the number of sp_char('{sp_char}') in s.") #例外の種類これでいい？
