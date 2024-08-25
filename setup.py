@@ -8,7 +8,7 @@ setup(
     author="つくも",
     author_email="0t0nashi0kayu@gmail.com",
     description="ちょっと楽にするために作ったライブラリ(関数2つ)",
-    long_description=open('README.md').read(),
+    long_description=open('README.md', encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/thukumo/wildcardpy",
     classifiers=[
