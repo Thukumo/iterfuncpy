@@ -14,5 +14,5 @@ pip install git+https://github.com/thukumo/wildcardpy.git
 ```python
 import iterfunc
 for i in iterfunc.iter_func(lambda x: x, "???"):
-    print(i) # 0 1 2 ... 997 998 999
+    print(i) # 000 001 002 ... 997 998 999
 ```
