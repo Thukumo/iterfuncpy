@@ -3,6 +3,7 @@ class iter_func:
         self.func, self.inputstr, self.l, self.sp_char = func, inputstr, l, sp_char
         self.n, self.ln, self.num = inputstr.count(sp_char), len(l), 0
         self.finum = self.ln**self.n
+        self.spstr = inputstr.split(sp_char)
 
     def __iter__(self):
         return self
