@@ -1,16 +1,18 @@
-# 概要
-文字列の一部をワイルドカード的にして楽にforループで関数実行してくれるだけです</br>
+[![SUSHI-WARE LICENSE](https://img.shields.io/badge/license-SUSHI--WARE%F0%9F%8D%A3-blue.svg)](https://github.com/MakeNowJust/sushi-ware)
+# ここにタイトルを入れる
+## 概要
+文字列の一部をワイルドカード的にして、イテレータで引数に渡した関数の戻り値を受け取れます<br>
 なんかいい感じの関数思いついたら書き足す...はず<br>
-# インストール
+## インストール
 依存しているライブラリはないです
 ```sh
 #シェルで
 pip install git+https://github.com/thukumo/wildcardpy.git
 ```
 
-# 使い方
+## 使い方
 ```python
 import iterfunc
-iterfunc.generate_combinations(lambda x: int(x)**2, "??") #[1, 1, 4, 9 ...
-iterfunc.generate_combinations(print, "hoge??") # hoge00 hoge01 ...
+for i in iterfunc.iter_func(lambda x: x, "???"):
+    print(i) # 0 1 2 ... 997 998 999
 ```

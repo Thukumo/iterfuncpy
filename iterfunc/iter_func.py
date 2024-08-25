@@ -1,45 +1,16 @@
-def generate_string(s, l):
-    """
-    Replaces each occurrence of "?" in the string `s` with the elements of the list `l` one by one.
+class iter_func:
+    def __init__(self, func, inputstr, l="0123456789", sp_char="?"):
+        self.func, self.inputstr, self.l, self.sp_char = func, inputstr, l, sp_char
+        self.n, self.ln, self.num = inputstr.count("?"), len(l), 0
+        self.finum = self.ln**self.n
+    def __iter__(self):
+        return self
+    def __next__(self):
+        if self.num == self.finum: raise StopIteration()
+        stnum = "".join(["0" for _ in range(self.n-len(str(self.num)))])+str(self.num)
+        self.num += 1
+        return self.func(generate_string(self.inputstr, [self.l[int(stnum[i])] for i in range(self.n)], self.sp_char))
 
-    Args:
-        s (str): The input string.
-        l (list): The list of elements to replace "?" with.
-
-    Returns:
-        str: The modified string with "?" replaced by elements from the list.
-    """
-    """
-    for i in range(len(l)):
-        s = s.replace("?", l[i], 1)
-    return s
-    """
-    sps = s.split("?")
-    if len(l)+1 != len(sps): Exception("Length of l must be equal to the number of '?' in s.")
+def generate_string(s, l, sp_char="?"):
+    if len(l)+1 != len(sps := s.split(sp_char)): raise ValueError(f"Length of l must be equal to the number of sp_char('{sp_char}') in s.") #例外の種類これでいい？
     return "".join(sps[i] + l[i] for i in range(len(l)))+sps[-1]
-
-def iter_func(func, inputstr, l="0123456789", tqdm=None):
-    """
-    Generate combinations of characters based on the given input string.
-
-    Args:
-        func (function): The function to apply to each generated combination.
-        inputstr (str): The input string containing '?' as placeholders for characters to be replaced.
-        l (str, optional): The characters to use for replacement. Defaults to "0123456789".
-        tqdm (function, optional): A progress bar function. Defaults to None.
-
-    Returns:
-        list: A list of results obtained by applying the given function to each generated combination.
-    """
-    n, ln = inputstr.count("?"), len(l)
-    lis = [0 for _ in range(n)] #位がでかいほうが前
-    lis[-1] = -1
-    res = []
-    for _ in (tqdm if tqdm != None else lambda x: x)(range(ln**n)):
-        lis[-1] += 1
-        for i in range(n-1, 0, -1):
-            if lis[i] == ln:
-                lis[i] = 0
-                lis[i-1] += 1
-        res.append(func(generate_string(inputstr, [l[lis[i]] for i in range(n)])))
-    return res
