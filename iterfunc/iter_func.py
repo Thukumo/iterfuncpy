@@ -18,7 +18,7 @@ def generate_string(s, l):
     if len(l)+1 != len(sps): Exception("Length of l must be equal to the number of '?' in s.")
     return "".join(sps[i] + l[i] for i in range(len(l)))+sps[-1]
 
-def generate_combinations(func, inputstr, l="0123456789", tqdm=None):
+def iter_func(func, inputstr, l="0123456789", tqdm=None):
     """
     Generate combinations of characters based on the given input string.
 
