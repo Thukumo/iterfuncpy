@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+IterFunc.egg-info/PKG-INFO
+IterFunc.egg-info/SOURCES.txt
+IterFunc.egg-info/dependency_links.txt
+IterFunc.egg-info/top_level.txt
+iterfunc/__init__.py
+iterfunc/iter_func.py

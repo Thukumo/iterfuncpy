@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry]
+name = "IterFunc"
+version = "0.0.2"
+description = "ちょっと楽するために作ったライブラリ(超小機能)"
+authors = ["つくも <0t0nashi0kayu@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

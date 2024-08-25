@@ -1,3 +1,16 @@
+Metadata-Version: 2.1
+Name: IterFunc
+Version: 0.0.2
+Summary: ちょっと楽するために作ったライブラリ(超小機能)
+Home-page: https://github.com/thukumo/wildcardpy
+Author: つくも
+Author-email: 0t0nashi0kayu@gmail.com
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 [![SUSHI-WARE LICENSE](https://img.shields.io/badge/license-SUSHI--WARE%F0%9F%8D%A3-blue.svg)](https://github.com/MakeNowJust/sushi-ware)
 # ここにタイトルを入れる
 ## 概要
