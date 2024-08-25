@@ -3,7 +3,7 @@ class iter_func:
         self.func, self.inputstr, self.l, self.sp_char = func, inputstr, l, sp_char
         self.n, self.ln, self.num = inputstr.count(sp_char), len(l), 0
         self.finum = self.ln**self.n
-        self.spstr = inputstr.split(sp_char)
+        self.spstr
 
     def __iter__(self):
         return self
@@ -15,11 +15,10 @@ class iter_func:
         if self.num == self.finum: raise StopIteration()
         stnum = "".join(["0" for _ in range(self.n-len(str(self.num)))])+str(self.num)
         self.num += 1
-        [self.l[int(stnum[i])] for i in range(self.n)]
-        return self.func("".join(sps[i] + l[i] for i in range(len(l :=  [self.l[int(stnum[i])] for i in range(self.n)])))+sps[-1])
+        return self.func(generate_string(self.inputstr, [self.l[int(stnum[i])] for i in range(self.n)], self.sp_char))
 
 def generate_string(s, l, sp_char="?"):
     if len(l)+1 != len(sps := s.split(sp_char)): raise ValueError(f"Length of l must be equal to the number of sp_char('{sp_char}') in s.") #例外の種類これでいい？
     return "".join(sps[i] + l[i] for i in range(len(l)))+sps[-1]
 
-for i in iter_func(print, "??"): pass
+for _ in iter_func(print, "??")
