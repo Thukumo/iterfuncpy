@@ -3,8 +3,11 @@ class iter_func:
         self.func, self.inputstr, self.l, self.sp_char = func, inputstr, l, sp_char
         self.n, self.ln, self.num = inputstr.count("?"), len(l), 0
         self.finum = self.ln**self.n
+        
     def __iter__(self):
         return self
+    def __len__(self):
+        return self.finum
     def __next__(self):
         if self.num == self.finum: raise StopIteration()
         stnum = "".join(["0" for _ in range(self.n-len(str(self.num)))])+str(self.num)
