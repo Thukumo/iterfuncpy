@@ -52,6 +52,8 @@ class iter_func:
             if self.stnum[i] == self.ln:
                 self.stnum[i] = 0
                 self.stnum[i+1] += 1
+            else:
+                break
         return self.func(generate_string(self.inputstr, [self.l[self.stnum[self.n-i-1]] for i in range(self.n)], self.sp_char))
 
 def generate_string(s, l, sp_char="?"):
