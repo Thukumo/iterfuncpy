@@ -52,7 +52,7 @@ class iter_func:
             if self.stnum[i] == self.ln:
                 self.stnum[i] = 0
                 self.stnum[i+1] += 1
-        return self.func(generate_string(self.inputstr, [self.l[self.stnum[i]] for i in range(self.n)], self.sp_char))
+        return self.func(generate_string(self.inputstr, [self.l[self.stnum[self.n-i-1]] for i in range(self.n)], self.sp_char))
 
 def generate_string(s, l, sp_char="?"):
     """
@@ -75,3 +75,6 @@ def generate_string(s, l, sp_char="?"):
     """
     if len(l)+1 != len(sps := s.split(sp_char)): raise ValueError(f"Length of l must be equal to the number of sp_char('{sp_char}') in s.")
     return "".join(sps[i] + l[i] for i in range(len(l)))+sps[-1]
+
+for s in iter_func(lambda x: x, "BPM???"):
+    print(s)
