@@ -30,7 +30,7 @@ class iter_func:
     def __init__(self, func, inputstr, l="0123456789", sp_char="?"):
         self.func, self.inputstr, self.l, self.sp_char = func, inputstr, l, sp_char
         self.n, self.ln, self.num = inputstr.count(sp_char), len(l), 0
-        #self.finum = self.ln**self.n
+        self.finum = self.ln**self.n
         self.spstr = inputstr.split(sp_char)
         self.stnum = [0 for _ in range(self.n)]
         self.stnum[0] = -1
