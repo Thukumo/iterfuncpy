@@ -37,9 +37,6 @@ class iter_func:
         return self.__finum
 
     def __next__(self):
-        #if self.__num == self.__finum: raise StopIteration()
-        #stnum = "".join(["0" for _ in range(self.__n-len(str(self.__num)))])+str(self.__num)
-        #self.__num += 1
         if all(i == self.__ln-1 for i in self.__stnum): raise StopIteration()
         self.__stnum[0] += 1
         for i in range(self.__n-1):
