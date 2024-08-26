@@ -75,6 +75,3 @@ def generate_string(s, l, sp_char="?"):
     """
     if len(l)+1 != len(sps := s.split(sp_char)): raise ValueError(f"Length of l must be equal to the number of sp_char('{sp_char}') in s.")
     return "".join(sps[i] + l[i] for i in range(len(l)))+sps[-1]
-
-for s in iter_func(lambda x: x, "BPM???"):
-    print(s)
