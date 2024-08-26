@@ -6,12 +6,6 @@ class iter_func:
         inputstr (str): The input string containing placeholders.
         l (str, optional): The characters to be used for replacement. Defaults to "0123456789".
         sp_char (str, optional): The placeholder character. Defaults to "?".
-    Attributes:
-        n (int): The number of placeholders in the input string.
-        ln (int): The length of the replacement characters.
-        num (int): The current iteration number.
-        finum (int): The total number of iterations.
-        spstr (list): The input string split by the placeholder character.
     Methods:
         __iter__(): Returns the iterator object.
         __len__(): Returns the total number of iterations.
@@ -28,33 +22,33 @@ class iter_func:
         for _ in iter_func(print, "abc?def"): pass
     """
     def __init__(self, func, inputstr, l="0123456789", sp_char="?"):
-        self.func, self.inputstr, self.l, self.sp_char = func, inputstr, l, sp_char
-        self.n, self.ln, self.num = inputstr.count(sp_char), len(l), 0
-        self.finum = self.ln**self.n
-        self.spstr = inputstr.split(sp_char)
-        if self.n <= 0 or self.ln <= 0: raise ValueError("Number of placeholders and replacement characters must be greater than 0.")
-        self.stnum = [0 for _ in range(self.n)]
-        self.stnum[0] = -1
+        self.__func, self.__inputstr, self.__l, self.__sp_char = func, inputstr, l, sp_char
+        self.__n, self.__ln, self.__num = inputstr.count(sp_char), len(l), 0
+        self.__finum = self.__ln**self.__n
+        self.__spstr = inputstr.split(sp_char)
+        if self.__n <= 0 or self.__ln <= 0: raise ValueError("Number of placeholders and replacement characters must be greater than 0.")
+        self.__stnum = [0 for _ in range(self.__n)]
+        self.__stnum[0] = -1
 
     def __iter__(self):
         return self
 
     def __len__(self):
-        return self.finum
+        return self.__finum
 
     def __next__(self):
-        #if self.num == self.finum: raise StopIteration()
-        #stnum = "".join(["0" for _ in range(self.n-len(str(self.num)))])+str(self.num)
-        #self.num += 1
-        if all(i == self.ln-1 for i in self.stnum): raise StopIteration()
-        self.stnum[0] += 1
-        for i in range(self.n-1):
-            if self.stnum[i] == self.ln:
-                self.stnum[i] = 0
-                self.stnum[i+1] += 1
+        #if self.__num == self.__finum: raise StopIteration()
+        #stnum = "".join(["0" for _ in range(self.__n-len(str(self.__num)))])+str(self.__num)
+        #self.__num += 1
+        if all(i == self.__ln-1 for i in self.__stnum): raise StopIteration()
+        self.__stnum[0] += 1
+        for i in range(self.__n-1):
+            if self.__stnum[i] == self.__ln:
+                self.__stnum[i] = 0
+                self.__stnum[i+1] += 1
             else:
                 break
-        return self.func(generate_string(self.inputstr, [self.l[self.stnum[self.n-i-1]] for i in range(self.n)], self.sp_char))
+        return self.__func(generate_string(self.__inputstr, [self.__l[self.__stnum[self.__n-i-1]] for i in range(self.__n)], self.__sp_char))
 
 def generate_string(s, l, sp_char="?"):
     """
