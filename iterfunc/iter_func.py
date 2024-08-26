@@ -32,6 +32,7 @@ class iter_func:
         self.n, self.ln, self.num = inputstr.count(sp_char), len(l), 0
         self.finum = self.ln**self.n
         self.spstr = inputstr.split(sp_char)
+        if self.n <= 0 or self.ln <= 0: raise ValueError("Number of placeholders and replacement characters must be greater than 0.")
         self.stnum = [0 for _ in range(self.n)]
         self.stnum[0] = -1
 
