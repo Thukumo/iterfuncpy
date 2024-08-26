@@ -23,7 +23,9 @@ class iter_func:
         iterator = iter_func(lambda x: x, "abc?def")
         # Iterate over the generated strings
         for string in iterator:
-            print(string)
+            print(string) # abc0def, abc1def, ..., abc9def
+        # This is same as
+        for _ in iter_func(print, "abc?def"): pass
     """
     def __init__(self, func, inputstr, l="0123456789", sp_char="?"):
         self.func, self.inputstr, self.l, self.sp_char = func, inputstr, l, sp_char

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "IterFunc"
-version = "0.0.4"
+version = "0.0.5"
 description = "ちょっと楽するために作ったライブラリ(超小機能)"
 readme = "README.md"
 license = {file="LICENSE"}
