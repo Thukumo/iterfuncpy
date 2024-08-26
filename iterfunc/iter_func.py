@@ -23,10 +23,11 @@ class iter_func:
     """
     def __init__(self, func, inputstr, l="0123456789", sp_char="?"):
         self.__func, self.__inputstr, self.__l, self.__sp_char = func, inputstr, l, sp_char
-        self.__n, self.__ln, self.__num = inputstr.count(sp_char), len(l), 0
+        self.__n, self.__ln = inputstr.count(sp_char), len(l)
         self.__finum = self.__ln**self.__n
         self.__spstr = inputstr.split(sp_char)
-        if self.__n <= 0 or self.__ln <= 0: raise ValueError("Number of placeholders and replacement characters must be greater than 0.")
+        self.__lspstr = len(self.__spstr)
+        if self.__ln == 0: raise ValueError("The number of replacement characters must be set.")
         self.__stnum = [0 for _ in range(self.__n)]
         self.__stnum[0] = -1
 
@@ -45,7 +46,11 @@ class iter_func:
                 self.__stnum[i+1] += 1
             else:
                 break
-        return self.__func(generate_string(self.__inputstr, [self.__l[self.__stnum[self.__n-i-1]] for i in range(self.__n)], self.__sp_char))
+        #return self.__func(gen_string(self.s, [self.__l[self.__stnum[self.__n-i-1]] for i in range(self.__n)], self.__sp_char))
+        return self.__func(self.__gen_string([self.__l[self.__stnum[self.__n-i-1]] for i in range(self.__n)]))
+    def __gen_string(self, l):
+        if self.__lspstr == 1: return self.__spstr[0]
+        return "".join(self.__spstr[i] + l[i] for i in range(self.__n))+self.__spstr[-1]
 
 def generate_string(s, l, sp_char="?"):
     """
@@ -66,5 +71,9 @@ def generate_string(s, l, sp_char="?"):
         >>> generate_string("Hello ? ? world", ["beautiful", "cruel"])
         'Hello beautiful cruel world'
     """
-    if len(l)+1 != len(sps := s.split(sp_char)): raise ValueError(f"Length of l must be equal to the number of sp_char('{sp_char}') in s.")
+    if len(l)+1 != (le := len(sps := s.split(sp_char))): raise ValueError(f"Length of l must be equal to the number of sp_char('{sp_char}') in s.")
+    if le == 1: return s
     return "".join(sps[i] + l[i] for i in range(len(l)))+sps[-1]
+
+from tqdm import tqdm
+for _ in tqdm(iter_func(lambda x: x, "B?PM???????")): pass
