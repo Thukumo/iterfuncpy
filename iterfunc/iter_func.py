@@ -74,6 +74,3 @@ def generate_string(s, l, sp_char="?"):
     if len(l)+1 != (le := len(sps := s.split(sp_char))): raise ValueError(f"Length of l must be equal to the number of sp_char('{sp_char}') in s.")
     if le == 1: return s
     return "".join(sps[i] + l[i] for i in range(len(l)))+sps[-1]
-
-from tqdm import tqdm
-for _ in tqdm(iter_func(lambda x: x, "B?PM???????")): pass
