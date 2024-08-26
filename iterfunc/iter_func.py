@@ -57,7 +57,7 @@ def generate_string(s, l, sp_char="?"):
         sp_char (str, optional): The special character used to identify the insertion points in `s`. Defaults to "?".
 
     Raises:
-        ValueError: If the length of `l` is not equal to the number of occurrences of `sp_char` in `s` plus 1.
+        ValueError: If the length of `l` is not equal to the number of occurrences of `sp_char` in `s`.
 
     Returns:
         str: The generated string with elements from `l` inserted at the appropriate positions.
