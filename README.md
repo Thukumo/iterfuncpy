@@ -15,5 +15,5 @@ pip install git+https://github.com/thukumo/iterfuncpy.git
 ```python
 import iterfunc
 for i in iterfunc.iter_func(lambda x: x, "?hoge??"):
-    print(i) # 0hoge00 0hoge01 0hoge02 ... 9hoge98 9hoge99
+    print(i) # 0hoge00, 0hoge01, 0hoge02, ... 9hoge98, 9hoge99
 ```
