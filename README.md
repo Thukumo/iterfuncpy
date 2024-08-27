@@ -1,6 +1,7 @@
 [![SUSHI-WARE LICENSE](https://img.shields.io/badge/license-SUSHI--WARE%F0%9F%8D%A3-blue.svg)](https://github.com/MakeNowJust/sushi-ware)
 # IterFunc(仮)
 ## 概要
+Python<br>
 文字列の一部をワイルドカード的にして、イテレータで引数に渡した関数の戻り値を受け取れます<br>
 なんかいい感じの関数思いついたら書き足す...はず<br>
 ## インストール
