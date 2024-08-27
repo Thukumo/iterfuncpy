@@ -36,8 +36,8 @@ class iter_func:
         self.__stnum = [0 for _ in range(self.__n)]
         self.__stnum[0] = -1
         if begin_at != None:
-            for i in [i for i in range(len(inputstr)) if inputstr[i] == sp_char]:
-                self.__stnum[self.n-i-1] = l.index(begin_at[i])
+            for num, i in enumerate([i for i in range(len(inputstr)) if inputstr[i] == sp_char]):
+                self.__stnum[self.__n-num-1] = l.index(begin_at[i])
             self.__stnum[0] -= 1
 
     def __iter__(self):
