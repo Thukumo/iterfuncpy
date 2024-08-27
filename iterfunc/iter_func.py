@@ -27,7 +27,7 @@ class iter_func:
         self.__finum = self.__ln**self.__n
         self.__spstr = inputstr.split(sp_char)
         self.__lspstr = len(self.__spstr)
-        if self.__ln == 0: raise ValueError("The number of replacement characters must be set.")
+        if self.__ln == 0: raise ValueError("Length of the list of replacement character(s) must not equal zero.")
         self.__stnum = [0 for _ in range(self.__n)]
         self.__stnum[0] = -1
 
