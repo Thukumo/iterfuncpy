@@ -37,8 +37,9 @@ class iter_func:
         self.__n, self.__ln = inputstr.count(sp_char), len(l)
         self.__finum = self.__ln**self.__n
         self.__spstr = inputstr.split(sp_char)
-        self.__lspstr = len(self.__spstr)
-        if self.__ln == 0: raise ValueError("Length of the list of replacement character(s) must not equal zero.")
+        self.__lspstr = len(self.__spstr) #__lensplisにかえる
+        if self.__n==0: raise ValueError("The number of the replaceable character(s) in the string must be larger than zero.")
+        if self.__ln == 0: raise ValueError("Length of the list of replacement character(s) must be larger than zero.")
         self.__stnum = [0 for _ in range(self.__n)]
         self.__stnum[0] = -1
         self.__offset = 0
@@ -47,7 +48,6 @@ class iter_func:
                 self.__stnum[self.__n-num-1] = l.index(begin_at[i])
             self.__stnum[0] -= 1
             self.__offset = sum(n*self.__ln**ind for ind, n in enumerate(self.__stnum))+1
-        
 
     def __iter__(self):
         return self
@@ -67,7 +67,7 @@ class iter_func:
         #return self.__func(gen_string(self.s, [self.__l[self.__stnum[self.__n-i-1]] for i in range(self.__n)], self.__sp_char))
         return self.__func(self.__gen_string([self.__l[self.__stnum[self.__n-i-1]] for i in range(self.__n)]))
     def __gen_string(self, l):
-        if self.__lspstr == 1: return self.__spstr[0]
+        if self.__lspstr == 1: return self.__spstr[0] # なんだっけこれ
         return "".join(self.__spstr[i] + l[i] for i in range(self.__n))+self.__spstr[-1]
 
 def generate_string(s, l, sp_char="?"):
